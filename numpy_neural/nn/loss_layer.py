@@ -35,7 +35,7 @@ class loss_layer(op):
         return self.o
 
     def mse_backward(self, y):
-        return y - self.o
+        self.grads = y - self.o
 
     def mse_loss(self, y):
         return np.mean(np.square(y - self.o))
