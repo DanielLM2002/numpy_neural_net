@@ -12,6 +12,12 @@ def relu(x):
 def  relu_grad(x):
     return 1.0 * (x > 0)
 
+def tanh(x):
+    return 2 / (1 + np.exp(-2*x)) - 1
+
+def tanh_grad(x):
+    return 1 - tanh(x)**2
+
 #with numerical stability
 def softmax(x):
     exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True))
