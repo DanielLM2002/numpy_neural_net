@@ -28,3 +28,14 @@ class loss_layer(op):
         one_hot[np.arange(self.o.shape[0]), y] = 1
         #fixed_section = np.nan_to_num((1 - one_hot) * np.log(1 - self.o))
         return -np.mean(np.sum(one_hot * np.log(self.o + 1e-15), axis=1))
+
+    def mse_forward(self, x):
+        self.x = x
+        self.o = np.dot(x, self.W) + self.b
+        return self.o
+
+    def mse_backward(self, y):
+        return y - self.o
+
+    def mse_loss(self, y):
+        return np.mean(np.square(y - self.o))
