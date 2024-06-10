@@ -33,8 +33,8 @@ class model():
                 data *= mask
                 self.dropout_masks.append(mask)
 
-        o = self.loss_layer.forward(data)
-        loss = self.loss_layer.loss(y)
+        o = self.loss_layer.mse_forward(data)
+        loss = self.loss_layer.mse_loss(y)
         #print(loss, o)
         return o, loss
 
@@ -47,7 +47,7 @@ class model():
 
     #alpha is used for reinforcement learning fir reward
     def backward(self, y, o, rewards=None):
-        self.loss_layer.backward(y, rewards)
+        self.loss_layer.mse_backward(y, rewards)
         prev = self.loss_layer
         for i in reversed(range(self.hidden_amount)):
             self.hidden_layers[i].backward(prev)
