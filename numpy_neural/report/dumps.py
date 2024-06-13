@@ -6,7 +6,7 @@ import numpy as np
 
 class nnlogger():
     def __init__(self, output_file, header):
-        self.csv_file = open(output_file, "w")
+        self.csv_file = open(output_file, "w+")
         self.writer = csv.writer(self.csv_file, delimiter=',')
         self.writer.writerow( header )
 
