@@ -65,7 +65,7 @@ hp = hyperparams(ConfigEnum.XOR)
 
 #model has number of inputs, number of outputs, and list with sizes of hidden layers
 #requires at least 1 hidden layer, else fails assert
-nn = model(hp.input_size, hp.output_size, hp.hidden_shapes, sigmoid, sigmoid_grad, has_dropout=hp.has_dropout, dropout_perc=hp.dropout_perc)
+nn = model(hp.input_size, hp.output_size, hp.hidden_shapes, tanh, tanh_grad, has_dropout=hp.has_dropout, dropout_perc=hp.dropout_perc)
 
 val_hist = historian()
 train_hist = historian()
