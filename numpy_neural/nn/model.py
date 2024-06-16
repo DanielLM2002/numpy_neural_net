@@ -47,7 +47,7 @@ class model():
 
     #alpha is used for reinforcement learning fir reward
     def backward(self, y, o, rewards=None):
-        self.loss_layer.mse_backward(y, rewards)
+        self.loss_layer.mse_backward(y)
         prev = self.loss_layer
         for i in reversed(range(self.hidden_amount)):
             self.hidden_layers[i].backward(prev)
