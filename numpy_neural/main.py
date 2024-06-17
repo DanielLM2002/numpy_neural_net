@@ -61,7 +61,7 @@ def train(nn, hp, val_hist, train_hist, logger):
 #load hyperparameters and settings according to dataset enum
 hp = hyperparams(ConfigEnum.XOR)
 #hp = hyperparams(ConfigEnum.IRIS)
-#hp = hyperparams(ConfigEnum.MNIST)
+# hp = hyperparams(ConfigEnum.MNIST)
 
 #model has number of inputs, number of outputs, and list with sizes of hidden layers
 #requires at least 1 hidden layer, else fails assert
